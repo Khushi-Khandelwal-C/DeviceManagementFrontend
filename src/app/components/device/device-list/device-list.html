@@ -1,1 +1,32 @@
-<p>device-list works!</p>
+<div class="container mt-4">
+  <h2 class="mb-4">Devices</h2>
+  <div class="row">
+    
+    <div class="col-md-4 mb-4" *ngFor="let device of devices()">
+      <div
+        class="card shadow-sm"
+        style="width: 18rem; min-height: 250px; cursor: pointer;"
+        [routerLink]="['/devices', device.deviceId]"
+      > 
+        <img
+          src="https://via.placeholder.com/286x180?text=Device+Image"
+          class="card-img-top"
+          alt="Device Image"
+        />
+        
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">{{ device.deviceName }}</h5>
+            <p class="card-text">
+              Shelf Positions: {{ device.numOfSP }}
+            </p>
+          </div>
+          
+          <button class="btn btn-primary mt-2 w-100">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
