@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="card shadow p-5">
+    <h3 class="mb-4">Attach Shelf</h3>
+    <div class="mb-3">
+      <label class="form-label">Select Shelf</label>
+      <select class="form-select"
+              [(ngModel)]="selectedShelfId">
+        <option value="">-- Select Shelf --</option>
+        <option *ngFor="let shelf of availableShelves()"
+                [value]="shelf.shelfId">
+          {{ shelf.shelfName }}
+        </option>
+      </select>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-secondary"
+              (click)="cancel()">
+        Cancel
+      </button>
+      <button class="btn btn-success"
+              (click)="attachShelf()"
+              [disabled]="!selectedShelfId">
+        Attach Shelf
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeviceForm } from './device-form';
+import { AttachShelf } from './attach-shelf';
 
-describe('DeviceForm', () => {
-  let component: DeviceForm;
-  let fixture: ComponentFixture<DeviceForm>;
+describe('AttachShelf', () => {
+  let component: AttachShelf;
+  let fixture: ComponentFixture<AttachShelf>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DeviceForm]
+      imports: [AttachShelf]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeviceForm);
+    fixture = TestBed.createComponent(AttachShelf);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

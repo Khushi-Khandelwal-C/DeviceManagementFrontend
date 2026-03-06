@@ -1,1 +1,38 @@
-<p>device-edit works!</p>
+<div class="container mt-5" *ngIf="device()">
+  <div class="card shadow p-5">
+    <h3 class="mb-4">Edit Device</h3>
+    <form [formGroup]="deviceForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Device Name</label>
+        <input type="text" class="form-control" formControlName="deviceName">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Part Number</label>
+        <input type="text" class="form-control" formControlName="partNumber">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Building Name</label>
+        <input type="text" class="form-control" formControlName="buildingName">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Device Type</label>
+        <input type="text" class="form-control" formControlName="deviceType">
+      </div>
+      <div class="mb-4">
+        <label class="form-label">Number Of Shelf Positions</label>
+        <input type="number" class="form-control" formControlName="numOfSP" >
+        <small class="text-muted">
+          Shelf positions cannot be modified after creation.
+        </small>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="deviceForm.invalid">
+          Update Device
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

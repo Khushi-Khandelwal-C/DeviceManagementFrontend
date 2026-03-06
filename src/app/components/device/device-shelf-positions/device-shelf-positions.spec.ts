@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShelfPositionCard } from './shelf-position-card';
+import { DeviceShelfPositions } from './device-shelf-positions';
 
-describe('ShelfPositionCard', () => {
-  let component: ShelfPositionCard;
-  let fixture: ComponentFixture<ShelfPositionCard>;
+describe('DeviceShelfPositions', () => {
+  let component: DeviceShelfPositions;
+  let fixture: ComponentFixture<DeviceShelfPositions>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShelfPositionCard]
+      imports: [DeviceShelfPositions]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ShelfPositionCard);
+    fixture = TestBed.createComponent(DeviceShelfPositions);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

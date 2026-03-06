@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class DeviceList implements OnInit {
   devices = signal<IDeviceResponse[]>([]);
-  deviceId!: string;
+  
   constructor(
     private deviceService: DeviceService,
     //private cdr : ChangeDetectorRef

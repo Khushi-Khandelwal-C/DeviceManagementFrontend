@@ -23,7 +23,7 @@ export class DeviceSummary implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.deviceId = this.route.snapshot.paramMap.get('deviceId')!;
+    this.deviceId = this.route.snapshot.paramMap.get('deviceId')!; //use that param variable which is used in routes
     this.getDevice();
   }
 
@@ -40,6 +40,10 @@ export class DeviceSummary implements OnInit{
 
   updateDevice(): void {
     this.router.navigate(['/devices/edit', this.deviceId]);
+  }
+
+  addShelf() : void {
+    this.router.navigate(['/devices',this.deviceId,'shelf-positions']);
   }
 
   deleteDevice()  {
