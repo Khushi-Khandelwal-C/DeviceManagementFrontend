@@ -1,1 +1,35 @@
-<p>shelf-summary works!</p>
+<div class="container mt-5" *ngIf="shelf() as s">
+  <div class="row">
+   
+    <div class="col-md-4 text-center">
+      <div class="card shadow p-4">
+        <i class="bi bi-hdd-stack" style="font-size: 100px;"></i>
+        <h4 class="mt-3">{{ s.shelfName }}</h4>
+        <p class="text-muted">Part No: {{ s.partNumber }}</p>
+      </div>
+    </div>
+    
+    <div class="col-md-8">
+      <div class="card shadow p-4">
+        <h3 class="mb-4">Shelf Details</h3>
+        <div class="row mb-3">
+          <div class="col-6 fw-bold">Device:</div>
+          <div class="col-6">{{ s.deviceName }}</div>
+        </div>
+        <div class="row mb-3" *ngIf="s.shelfPositionId !== 'Not attached'">
+          <div class="col-6 fw-bold">Shelf Position:</div>
+          <div class="col-6">{{ s.shelfPositionId }}</div>
+        </div>
+        <hr class="my-4">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-warning px-4" (click)="updateShelf()">
+            Update
+          </button>
+          <button class="btn btn-danger px-4" (click)="deleteShelf()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

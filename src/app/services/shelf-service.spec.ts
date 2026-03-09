@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Shelf } from './shelf';
+import { ShelfService } from './shelf-service';
 
 describe('Shelf', () => {
-  let service: Shelf;
+  let service: ShelfService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Shelf);
+    service = TestBed.inject(ShelfService);
   });
 
   it('should be created', () => {

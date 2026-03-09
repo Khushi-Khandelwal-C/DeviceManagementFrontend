@@ -1,1 +1,53 @@
-<p>shelf-edit works!</p>
+<h3 class="mb-4">Edit Shelf</h3>
+
+<form [formGroup]="shelfForm" (ngSubmit)="onSubmit()">
+
+  <div class="mb-3">
+    <label class="form-label">Shelf Name</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="shelfName">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Part Number</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="partNumber">
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label">Shelf ID</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="shelfId"
+      >
+    <small class="text-muted">
+      Shelf ID cannot be modified after creation.
+    </small>
+  </div>
+
+  <div class="d-flex justify-content-between">
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="cancel()">
+      Cancel
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="shelfForm.invalid">
+      Update Shelf
+    </button>
+
+  </div>
+
+</form>
+
+

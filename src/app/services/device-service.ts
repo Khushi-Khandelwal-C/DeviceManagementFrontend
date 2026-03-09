@@ -23,5 +23,35 @@ export class DeviceService {
     return this.http.delete(`${this.baseUrl}${deviceId}`)
   }
 
+  updateDevice(deviceId : string,data : any){
+    return this.http.put(`${this.baseUrl}update/${deviceId}`,data)
+  }
+
+  createDevice(data : any){
+    return this.http.post(`${this.baseUrl}add`,data)
+  }
+
+  getShelfPositions(deviceId : string){
+    return this.http.get(`${this.baseUrl}${deviceId}/shelf-positions`)
+  }
+
+  addShelfToSP(deviceId : string,shelfPositionId : string,shelfId : string){
+    return this.http.post(`${this.baseUrl}${deviceId}/shelf-positions/${shelfPositionId}/shelf/${shelfId}`,{}
+    )
+  }
+
+  getAvailableShelves(){
+    return this.http.get<any[]>('http://localhost:8080/api/shelf/available');
+  }
+
+  getShelfPositionById(shelfPositionId : string){
+    return this.http.get<any>(`${this.baseUrl}shelf-positions/${shelfPositionId}`);
+  }
+
+  removeShelfFromSP(deviceId : string,shelfPositionId : string){
+    return this.http.delete(`${this.baseUrl}${deviceId}/shelf-positions/${shelfPositionId}/shelf`);
+  }
+
+
 
 }

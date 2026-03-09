@@ -1,1 +1,24 @@
-<p>shelf-list works!</p>
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Shelves</h2>
+    <button class="btn btn-primary" routerLink="/shelves/create">
+      + Create Shelf
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let shelf of shelves()">
+      <div class="card shadow p-3"
+           style="cursor:pointer"
+           [routerLink]="['/shelves', shelf.shelfId]">
+        <h5>{{ shelf.shelfName }}</h5>
+        <p class="mb-1"><strong>Part Number:</strong> {{ shelf.partNumber }}</p>
+        <p><strong>Unique ID:</strong> {{ shelf.shelfId }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="shelves().length === 0" class="alert alert-info mt-4">
+    No shelves found.
+  </div>
+</div>

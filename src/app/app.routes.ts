@@ -8,6 +8,8 @@ import { ShelfList } from './components/shelf/shelf-list/shelf-list';
 import { ShelfCreate } from './components/shelf/shelf-create/shelf-create';
 import { ShelfSummary } from './components/shelf/shelf-summary/shelf-summary';
 import { ShelfEdit } from './components/shelf/shelf-edit/shelf-edit';
+import { DeviceShelfPositions } from './components/device/device-shelf-positions/device-shelf-positions';
+import { AttachShelf } from './components/device/attach-shelf/attach-shelf';
 
 export const routes: Routes = [
     {
@@ -27,7 +29,7 @@ export const routes: Routes = [
         component : DeviceList
     },
     {
-        path : "devices/new",
+        path : "devices/create",
         component : DeviceCreate
     },
     {
@@ -35,8 +37,16 @@ export const routes: Routes = [
         component : DeviceSummary
     },
     {
-        path : "devices/:deviceId/edit",
+        path : "devices/edit/:deviceId",
         component : DeviceEdit
+    },
+    {
+        path : "devices/:deviceId/shelf-positions",
+        component : DeviceShelfPositions
+    },
+    {
+       path : "devices/:deviceId/shelf-positions/:shelfPositionId/attach" ,
+       component : AttachShelf
     },
 
      //-------------DEVICES ROUTES-----------
@@ -45,7 +55,7 @@ export const routes: Routes = [
         component : ShelfList
     },
     {
-        path : "shelves/new",
+        path : "shelves/create",
         component : ShelfCreate
     },
     {
@@ -53,7 +63,7 @@ export const routes: Routes = [
         component : ShelfSummary
     },
     {
-        path : "shelves/:shelfId/edit",
+        path : "shelves/edit/:shelfId",
         component : ShelfEdit
     },
     {

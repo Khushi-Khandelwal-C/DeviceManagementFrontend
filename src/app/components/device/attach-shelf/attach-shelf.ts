@@ -15,7 +15,7 @@ export class AttachShelf implements OnInit {
   shelfPositionId!: string;
   selectedShelfId!: string;
   
-
+  shelfPosition = signal<any>(null);
   availableShelves = signal<any[]>([]);
   constructor(
     private route : ActivatedRoute,
@@ -26,13 +26,16 @@ ngOnInit(): void {
   this.deviceId = this.route.snapshot.paramMap.get("deviceId")!;
   this.shelfPositionId = this.route.snapshot.paramMap.get("shelfPositionId")!;
 
+  this.loadShelfPositions();
   this.loadAvailableShelves();
 
 }
 loadAvailableShelves(){
   this.deviceService.getAvailableShelves().subscribe({
     next : (data) =>{
+      
       this.availableShelves.set(data);
+
     }
   })
 }
@@ -46,19 +49,19 @@ attachShelf(){
   })
 }
 
-removeShelf(shelfPositionId : string){
-  if(!confirm("Are you sure you want to remove this shelf?")) return;
-
-  this.deviceService.removeShelfFromSP(this.deviceId,shelfPositionId)
+loadShelfPositions(){
+  this.deviceService.getShelfPositionById(this.shelfPositionId)
   .subscribe({
-    next : () =>{
-      alert('Shelf removed succesfully');
-      this.loadAvailableShelves();
-      
+    next : (data) =>{
+      this.shelfPosition.set(data);
     },
-    error : (err) => console.error(err)
-  })
+    error : (err) =>{
+      console.log("Error loading shelf positions",err);
+    }
+  });
 }
+
+
 cancel(){
   this.router.navigate(['/devices',this.deviceId,'shelf-positions']);
 }

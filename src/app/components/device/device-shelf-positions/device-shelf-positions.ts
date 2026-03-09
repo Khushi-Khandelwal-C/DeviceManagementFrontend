@@ -32,6 +32,7 @@ export class DeviceShelfPositions implements OnInit {
       }
     });
   }
+  
 
   attachShelf(shelfPositionId : string){
     this.router.navigate([
@@ -40,5 +41,19 @@ export class DeviceShelfPositions implements OnInit {
       'attach'
     ]);
   }
+  removeShelf(shelfPositionId : string){
+  if(!confirm("Are you sure you want to remove this shelf?")) return;
+
+  this.deviceService.removeShelfFromSP(this.deviceId,shelfPositionId)
+  .subscribe({
+    next : () =>{
+      alert('Shelf removed succesfully');
+      this.loadShelfPositions();
+      
+    },
+    error : (err) => console.log("error removing shelf")
+  })
+}
 
 }
+
